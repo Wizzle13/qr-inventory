@@ -1,0 +1,18 @@
+{
+    "inventory":[
+        {
+            "qr": 0,
+            "type": "cable",
+            "connectors": "USB A/Custom",
+            "description" : "silver braided",
+            "usedfor": "Oculus"
+        },
+        {
+            "qr": 1,
+            "type": "cable",
+            "connectors": "USB A/USBC",
+            "description" : "black",
+            "usedfor": "massager"
+        }
+    ]
+}
