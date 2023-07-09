@@ -1,6 +1,36 @@
-body {
-    background: green;
+:root {
+    --background: white;
+    --text:black;
 }
-#inventroy {
+body {
+    background: var(--background);
+    
+}
+#inventory {
+    
+    color: var(--text);
+    margin: 25px auto;
+    padding: 20px;
+}
+
+.container {
+    width: 325px;
     background: red;
+    border-radius: 5%;
+    padding: 20px;
+   
+
+}
+
+.container--title {
+    font-weight: 700;
+    text-align: center;
+}
+
+.container--img {
+    width: 300px;
+}
+
+.container--details {
+    font-family: 400;
 }

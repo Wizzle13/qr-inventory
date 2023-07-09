@@ -1,32 +1,62 @@
 var inventorySection = document.querySelector("#inventory");
+var modalInventory = document.getElementById("inventory");
 
-var QRId = 0;
+const myKeysValues = window.location.search;
+console.log("values: ", myKeysValues);
 
-var getInventroy =function() {
-    const apiUrl = "../assets/api/inventory.json" ;
-    fetch(apiUrl)
-        .then(response => response.json())
-        .then(data => {
-            
-            console.log(data); // do something with the data here
-            const Rinv = data.inventory[QRId];
-            console.log(Rinv);
-            // extract the quote and name properties
-            const { Rinv: qr, type, connectors, description, usedfor } = Rinv;
-             
+const urlParams = new URLSearchParams(myKeysValues);
 
-            $(inventorySection).empty();
-            $(inventorySection).append(
-                // "<div><br>Hello<br></div>"
-                "<div><br>" + `"${qr}"` + "<br>" + `${type}` + "<br>" + `${connectors}` + "<br>" +`${description}` + "<br>" +`${usedfor}` + "<br></div>"
-                );
-        })
-        .catch(error => {
-        console.error('Error fetching JSON data:', error);
-        
-    });
+const paramCat =urlParams.get('cat');
+const paramId =urlParams.get('id');
+
+var QRCat= paramCat;
+var QRId = paramId;
+console.log(paramCat);
+if (paramId === null) {
+    $(inventorySection).empty();
+    $(inventorySection).append(
+        "<div>OOPS</div>"
+    );
 }
+else {
+    var getInventory =function() {
+        modalInventory.style.display="block";
+        
+        const apiUrl = "./assets/api/inventory.json";
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                
+                console.log(data); // do something with the data here
+                const Rinv = data.inventory[QRId];
+                console.log(Rinv);
+                // extract the quote and name properties
+                const { Rinv: qr, qrcode, type, connectors, description, usedfor } = Rinv;
+                
 
+                $(inventorySection).empty();
+                $(inventorySection).append(
+                   
+                    "<div class='container'>"+
+                        "<div class='container--title'>"+ 
+                        `${usedfor}`+
+                        "</div>"+ 
+                        "<img class='container--img' src=../assets/images/items/cables/"+`${usedfor}`+".jpg />" + 
+                        "<div class='container--details'>"+
+                            "<div class='connector'>"+
+                                `Connector Type: ${connectors}` + 
+                            "</div>"+
+                            "<div class='description'>"+    
+                                 `Description: ${description}` + 
+                            "</div>"+
+                        "</div>"
+                    );
+            })
+            .catch(error => {
+            console.error('Error fetching JSON data:', error);
+            
+        });
+    }
 
-
-getInventroy();
+getInventory();
+}

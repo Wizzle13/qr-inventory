@@ -1,14 +1,14 @@
 {
     "inventory":[
         {
-            "qr": 0,
+            "qrcode": 0,
             "type": "cable",
-            "connectors": "USB A/Custom",
-            "description" : "silver braided",
+            "connectors": "USB-C tip, Magnetic connector, USB Type A",
+            "description" : "Braided, Reasonable price, Support fast charging, Tangle free, All-in-One set, Convenient magnetic, 2000 mAh Rechargeable battery, Charge headset, controllers simultaneously, Fit for Elite Strap",
             "usedfor": "Oculus"
         },
         {
-            "qr": 1,
+            "qrcode": 1,
             "type": "cable",
             "connectors": "USB A/USBC",
             "description" : "black",
