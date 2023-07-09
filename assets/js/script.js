@@ -41,7 +41,7 @@ else {
                         "<div class='container--title'>"+ 
                         `${usedfor}`+
                         "</div>"+ 
-                        "<img class='container--img' src=../assets/images/items/cables/"+`${usedfor}`+".jpg />" + 
+                        "<img class='container--img' src='../assets/images/items/cables/"+`${usedfor}`+".jpg' />" + 
                         "<div class='container--details'>"+
                             "<div class='connector'>"+
                                 `Connector Type: ${connectors}` + 

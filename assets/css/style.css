@@ -29,6 +29,7 @@ body {
 
 .container--img {
     width: 300px;
+    border-radius: 25px;
 }
 
 .container--details {
